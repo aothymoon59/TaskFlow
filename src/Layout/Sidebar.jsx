@@ -9,14 +9,22 @@ import Logo from '../Components/Logo/Logo'
 import useAuth from '../hooks/useAuth'
 
 const Sidebar = () => {
-    const { user } = useAuth()
-    console.log(user)
+    const { user, logOut } = useAuth();
     const [isActive, setActive] = useState('false')
 
     // Sidebar Responsive Handler
     const handleToggle = () => {
         setActive(!isActive)
     }
+
+    // Logout handler 
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    };
     return (
         <>
             {/* Small Screen Navbar */}
@@ -115,6 +123,7 @@ const Sidebar = () => {
                             <GrLogin className='w-8 h-8' />
                             <span className='mx-4 font-medium'>Login</span>
                         </Link> : <button
+                            onClick={handleLogOut}
                             className='flex w-full items-center px-4 py-2 mt-5 text-black hover:bg-blue-300 transition-colors duration-300 transform'
                             aria-label="Logout"
                             title="Logout"

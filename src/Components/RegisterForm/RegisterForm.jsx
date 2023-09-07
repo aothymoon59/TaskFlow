@@ -8,7 +8,7 @@ import useAuth from '../../hooks/useAuth';
 
 const RegisterForm = () => {
     const [showPass, setShowPass] = useState(false);
-    const { loading, setLoading, createUser, updateUserProfile, verificationEmail } = useAuth();
+    const { loading, setLoading, createUser, updateUserProfile, verificationEmail, logOut } = useAuth();
     const navigate = useNavigate();
 
     const {
@@ -53,6 +53,7 @@ const RegisterForm = () => {
                                 };
                                 // TODO: push data to localstorage 
                                 console.log(savedUser)
+                                handleSignOutAfterReg();
                                 reset();
                                 toast.success("Successfully sign Up!");
                                 setLoading(false);
@@ -79,7 +80,14 @@ const RegisterForm = () => {
             });
     };
 
-
+    // control(LogOut) sign in after register
+    const handleSignOutAfterReg = () => {
+        logOut()
+            .then(() => { })
+            .catch((err) => {
+                console.log(err.message);
+            });
+    };
 
     return (
         <div className='w-full xl:w-[70%]'>
