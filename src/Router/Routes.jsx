@@ -4,12 +4,34 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import LoginLayout from "../Layout/LoginLayout";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import Home from "../Pages/Home/Home";
+import TaskBoard from "../Pages/TaskBoard/TaskBoard";
+import AddTask from "../Pages/AddTask/AddTask";
+import Profile from "../Pages/Profile/Profile";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
-        errorElement: <ErrorPage />
+        errorElement: <ErrorPage />,
+        children: [
+            {
+                path: "/",
+                element: <Home />
+            },
+            {
+                path: "/add-task",
+                element: <AddTask />
+            },
+            {
+                path: "/task-board",
+                element: <TaskBoard />
+            },
+            {
+                path: "/profile",
+                element: <Profile />
+            },
+        ]
     },
     {
         path: "/loginLayout",

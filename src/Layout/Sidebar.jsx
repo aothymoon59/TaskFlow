@@ -6,9 +6,11 @@ import { GoTasklist } from 'react-icons/go'
 import { GrLogout } from 'react-icons/gr'
 import { AiOutlineBars } from 'react-icons/ai'
 import Logo from '../Components/Logo/Logo'
+import useAuth from '../hooks/useAuth'
 
 const Sidebar = () => {
-
+    const { user } = useAuth()
+    console.log(user)
     const [isActive, setActive] = useState('false')
 
     // Sidebar Responsive Handler
@@ -52,6 +54,8 @@ const Sidebar = () => {
                         <nav>
                             <NavLink
                                 to="/"
+                                aria-label="Home"
+                                title="Home"
                                 className={({ isActive }) =>
                                     `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-blue-300 text-black ${isActive ? "bg-blue-300" : "bg-transparent"}`
                                 }
@@ -61,6 +65,8 @@ const Sidebar = () => {
                             </NavLink>
                             <NavLink
                                 to="/add-task"
+                                aria-label="Add Task"
+                                title="Add Task"
                                 className={({ isActive }) =>
                                     `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-blue-300 text-black ${isActive ? "bg-blue-300" : "bg-transparent"}`
                                 }
@@ -70,6 +76,8 @@ const Sidebar = () => {
                             </NavLink>
                             <NavLink
                                 to="/task-board"
+                                aria-label="Task Board"
+                                title="Task Board"
                                 className={({ isActive }) =>
                                     `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-blue-300 text-black ${isActive ? "bg-blue-300" : "bg-transparent"}`
                                 }
@@ -85,18 +93,24 @@ const Sidebar = () => {
                     <hr />
                     <NavLink
                         to='/profile'
+                        aria-label="Profile"
+                        title="Profile"
                         className={({ isActive }) =>
                             `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-blue-300 text-black ${isActive ? "bg-blue-300" : "bg-transparent"}`
                         }
                     >
-                        <FaUserCircle className='w-5 h-5' />
+                        {
+                            user ? <img src={user?.photoURL} alt={user?.displayName} className='w-8 h-8 rounded-full object-cover object-center border border-blue-300' /> : <FaUserCircle className='w-8 h-8' />
+                        }
 
                         <span className='mx-4 font-medium'>Profile</span>
                     </NavLink>
                     <button
                         className='flex w-full items-center px-4 py-2 mt-5 text-black hover:bg-blue-300 transition-colors duration-300 transform'
+                        aria-label="Logout"
+                        title="Logout"
                     >
-                        <GrLogout className='w-5 h-5' />
+                        <GrLogout className='w-8 h-8' />
 
                         <span className='mx-4 font-medium'>Logout</span>
                     </button>

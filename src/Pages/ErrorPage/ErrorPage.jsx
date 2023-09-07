@@ -46,7 +46,7 @@ const ErrorPage = () => {
                 <p className="text-3xl lg:text-5xl">We couldn&apos;t find that page</p>
                 <p className="text-xl md:text-2xl lg:text-3xl">
                     Please go to{" "}
-                    <Link className="text-blue-600" href="/">
+                    <Link className="text-[#2896FF]" href="/">
                         TaskFlow&apos;s Home Page
                     </Link>
                 </p>
