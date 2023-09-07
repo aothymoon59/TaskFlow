@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+.file-input::file-selector-button {
+    background-color: #2896FF !important;
+    color: #ffffff !important;
+    border: 0;
+}
+
+.common-btn {
+    @apply font-bold text-xl border border-[#2896FF] bg-[#2896FF] rounded-md py-4 px-6 text-white transition-all duration-300 ease-in-out
+}
+
+.common-btn:hover {
+    @apply bg-transparent text-[#2896FF]
+}
