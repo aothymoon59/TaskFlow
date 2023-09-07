@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom'
 import { FaHome, FaUserCircle } from 'react-icons/fa'
 import { MdLibraryAdd } from 'react-icons/md'
 import { GoTasklist } from 'react-icons/go'
-import { GrLogout } from 'react-icons/gr'
+import { GrLogout, GrLogin } from 'react-icons/gr'
 import { AiOutlineBars } from 'react-icons/ai'
 import Logo from '../Components/Logo/Logo'
 import useAuth from '../hooks/useAuth'
@@ -20,7 +20,7 @@ const Sidebar = () => {
     return (
         <>
             {/* Small Screen Navbar */}
-            <div className='bg-blue-50 text-gray-800 flex justify-between md:hidden'>
+            <div className='bg-blue-50 text-gray-800 flex justify-between md:hidden sticky top-0'>
                 <div>
                     <div className='block cursor-pointer p-4 font-bold'>
                         <Logo />
@@ -29,7 +29,7 @@ const Sidebar = () => {
 
                 <button
                     onClick={handleToggle}
-                    className='mobile-menu-button p-4 focus:outline-none focus:bg-gray-200'
+                    className='mobile-menu-button p-4 focus:outline-none focus:bg-blue-200'
                 >
                     <AiOutlineBars className='h-5 w-5' />
                 </button>
@@ -105,15 +105,24 @@ const Sidebar = () => {
 
                         <span className='mx-4 font-medium'>Profile</span>
                     </NavLink>
-                    <button
-                        className='flex w-full items-center px-4 py-2 mt-5 text-black hover:bg-blue-300 transition-colors duration-300 transform'
-                        aria-label="Logout"
-                        title="Logout"
-                    >
-                        <GrLogout className='w-8 h-8' />
 
-                        <span className='mx-4 font-medium'>Logout</span>
-                    </button>
+                    {
+                        !user ? <Link to='/loginLayout/login'
+                            className='flex w-full items-center px-4 py-2 mt-5 text-black hover:bg-blue-300 transition-colors duration-300 transform'
+                            aria-label="Login"
+                            title="Login"
+                        >
+                            <GrLogin className='w-8 h-8' />
+                            <span className='mx-4 font-medium'>Login</span>
+                        </Link> : <button
+                            className='flex w-full items-center px-4 py-2 mt-5 text-black hover:bg-blue-300 transition-colors duration-300 transform'
+                            aria-label="Logout"
+                            title="Logout"
+                        >
+                            <GrLogout className='w-8 h-8' />
+                            <span className='mx-4 font-medium'>Logout</span>
+                        </button>
+                    }
                 </div>
             </div>
         </>

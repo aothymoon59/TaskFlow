@@ -56,7 +56,7 @@ const RegisterForm = () => {
                                 reset();
                                 toast.success("Successfully sign Up!");
                                 setLoading(false);
-                                navigate("/loginLayout");
+                                navigate("/loginLayout/login");
                             })
                             .catch((err) => {
                                 console.log(err.message);
@@ -64,7 +64,7 @@ const RegisterForm = () => {
                                 setLoading(false);
                             });
                         setLoading(false);
-                        navigate("/loginLayout");
+                        navigate("/loginLayout/login");
                     })
                     .catch((err) => {
                         console.log(err.message);
@@ -201,7 +201,7 @@ const RegisterForm = () => {
                     <p className="text-center mt-4 mb-6">
                         <small>
                             Already registered? Go to{" "}
-                            <Link to="/loginLayout" className="font-semibold text-[#2896FF]">
+                            <Link to="/loginLayout/login" className="font-semibold text-[#2896FF]">
                                 SIGN IN
                             </Link>
                         </small>
