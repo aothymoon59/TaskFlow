@@ -51,7 +51,7 @@ const RegisterForm = () => {
                                     image: imgUrl,
                                     role: "user",
                                 };
-
+                                // TODO: push data to localstorage 
                                 console.log(savedUser)
                                 reset();
                                 toast.success("Successfully sign Up!");
