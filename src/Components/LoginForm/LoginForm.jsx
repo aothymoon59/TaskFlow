@@ -25,12 +25,12 @@ const LoginForm = () => {
 
         signIn(email, password)
             .then((result) => {
-                const loggedUser = result.user;
-                if (!loggedUser.emailVerified) {
-                    toast.error('You need to verify your email first')
-                    setLoading(false);
-                    return false;
-                }
+                // const loggedUser = result.user;
+                // if (!loggedUser.emailVerified) {
+                //     toast.error('You need to verify your email first')
+                //     setLoading(false);
+                //     return false;
+                // }
                 reset();
                 toast.success("Successfully sign in!");
                 setLoading(false);

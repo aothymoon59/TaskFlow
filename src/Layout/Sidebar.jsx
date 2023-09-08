@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import { FaHome, FaUserCircle } from 'react-icons/fa'
+import { FaHome } from 'react-icons/fa'
 import { MdLibraryAdd } from 'react-icons/md'
 import { GoTasklist } from 'react-icons/go'
 import { GrLogout, GrLogin } from 'react-icons/gr'
@@ -99,20 +99,19 @@ const Sidebar = () => {
 
                 <div>
                     <hr />
-                    <NavLink
-                        to='/profile'
-                        aria-label="Profile"
-                        title="Profile"
-                        className={({ isActive }) =>
-                            `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-blue-300 text-black ${isActive ? "bg-blue-300" : "bg-transparent"}`
-                        }
-                    >
-                        {
-                            user ? <img src={user?.photoURL} alt={user?.displayName} className='w-8 h-8 rounded-full object-cover object-center border border-blue-300' /> : <FaUserCircle className='w-8 h-8' />
-                        }
-
-                        <span className='mx-4 font-medium'>Profile</span>
-                    </NavLink>
+                    {
+                        user && <NavLink
+                            to='/profile'
+                            aria-label="Profile"
+                            title="Profile"
+                            className={({ isActive }) =>
+                                `flex items-center px-4 py-2 mt-5  transition-colors duration-300 transform  hover:bg-blue-300 text-black ${isActive ? "bg-blue-300" : "bg-transparent"}`
+                            }
+                        >
+                            <img src={user?.photoURL} alt={user?.displayName} className='w-8 h-8 rounded-full object-cover object-center border border-blue-300' />
+                            <span className='mx-4 font-medium'>Profile</span>
+                        </NavLink>
+                    }
 
                     {
                         !user ? <Link to='/loginLayout/login'

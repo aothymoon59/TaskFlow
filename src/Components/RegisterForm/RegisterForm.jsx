@@ -38,10 +38,10 @@ const RegisterForm = () => {
 
                 createUser(email, password)
                     .then((res) => {
-                        verificationEmail(res.user)
-                            .then(result => {
-                                toast("Please verify your email address")
-                            })
+                        // verificationEmail(res.user)
+                        //     .then(result => {
+                        //         toast("Please verify your email address")
+                        //     })
                         updateUserProfile(name, imgUrl)
                             .then(() => {
                                 const savedUser = {
