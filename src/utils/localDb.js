@@ -9,6 +9,12 @@ const addUsersToDb = (user) => {
   localStorage.setItem("users", JSON.stringify(newUsers));
 };
 
+// Get all user
+const getAllUsers = () => {
+  let users = JSON.parse(localStorage.getItem("users"));
+  return users;
+};
+
 // getSingleUser
 const getSingleUser = (email) => {
   let users = JSON.parse(localStorage.getItem("users"));
@@ -16,4 +22,4 @@ const getSingleUser = (email) => {
   return existUser;
 };
 
-export { addUsersToDb, getSingleUser };
+export { addUsersToDb, getSingleUser, getAllUsers };

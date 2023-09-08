@@ -6,6 +6,7 @@ import { HiPencilAlt } from "react-icons/hi";
 
 const Home = () => {
     const { user } = useAuth()
+
     return (
         <div className="p-6 min-h-screen flex justify-center items-center">
             <div className="bg-blue-50 w-full max-w-2xl mx-auto rounded-sm p-5 text-center">
