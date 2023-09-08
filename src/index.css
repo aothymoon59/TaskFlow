@@ -15,7 +15,7 @@ body {
 }
 
 .common-btn {
-    @apply font-bold text-xl border border-[#2896FF] bg-[#2896FF] rounded-md py-4 px-6 text-white transition-all duration-300 ease-in-out
+    @apply font-bold border border-[#2896FF] bg-[#2896FF] rounded-md py-3 px-6 text-white transition-all duration-300 ease-in-out
 }
 
 .common-btn:hover {

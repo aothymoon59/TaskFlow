@@ -29,8 +29,11 @@ const Profile = () => {
                                 alt="Profile"
                                 className="mx-auto w-24 h-24 rounded-full mb-4"
                             />
-                            <h2 className="text-lg sm:text-xl font-semibold">{myProfile?.name}</h2>
-                            <p className="text-gray-600">{myProfile?.bio}</p>
+                            <div className="space-y-2">
+                                <h2 title="User Name" className="text-lg sm:text-xl font-semibold">{myProfile?.name}</h2>
+                                <p title="Bio" className="text-gray-600">{myProfile?.bio}</p>
+                                <p title="User Email" className="text-gray-600">{myProfile?.email}</p>
+                            </div>
                         </div>
                     </div>
                 </div>

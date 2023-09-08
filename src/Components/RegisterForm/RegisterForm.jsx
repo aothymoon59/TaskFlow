@@ -201,7 +201,7 @@ const RegisterForm = () => {
                     </div>
                     <button
                         type="submit"
-                        className="w-full common-btn"
+                        className="w-full common-btn text-xl"
                     >
                         {loading ? (
                             <ImSpinner9 className="m-auto animate-spin" size={24} />
