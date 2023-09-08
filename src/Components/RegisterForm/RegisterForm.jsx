@@ -5,6 +5,7 @@ import { FaArrowLeft, FaEye, FaEyeSlash } from "react-icons/fa";
 import { ImSpinner9 } from "react-icons/im";
 import { toast } from 'react-hot-toast';
 import useAuth from '../../hooks/useAuth';
+import { addUsersToDb } from '../../utils/localDb';
 
 const RegisterForm = () => {
     const [showPass, setShowPass] = useState(false);
@@ -52,6 +53,8 @@ const RegisterForm = () => {
                                     role: "user",
                                 };
                                 // TODO: push data to localstorage 
+
+                                addUsersToDb(savedUser)
                                 console.log(savedUser)
                                 handleSignOutAfterReg();
                                 reset();

@@ -8,6 +8,7 @@ import Home from "../Pages/Home/Home";
 import TaskBoard from "../Pages/TaskBoard/TaskBoard";
 import AddTask from "../Pages/AddTask/AddTask";
 import Profile from "../Pages/Profile/Profile";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,9 @@ const router = createBrowserRouter([
             },
             {
                 path: "/profile",
-                element: <Profile />
+                element: <PrivateRoute>
+                    <Profile />
+                </PrivateRoute>
             },
         ]
     },

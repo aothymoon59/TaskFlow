@@ -4,12 +4,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaArrowLeft, FaEye, FaEyeSlash } from "react-icons/fa";
 import useAuth from '../../hooks/useAuth';
 import { ImSpinner9 } from 'react-icons/im';
+// import { HiMailOpen } from 'react-icons/hi';
 import { toast } from 'react-hot-toast';
 
 const LoginForm = () => {
     const [showPass, setShowPass] = useState(false);
     const { loading, setLoading, signIn } = useAuth();
     const navigate = useNavigate();
+    // const emailRef = useRef();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
@@ -42,6 +44,31 @@ const LoginForm = () => {
                 setLoading(false);
             });
     };
+
+
+    // // password reset here
+    // const handleResetPassword = (e) => {
+    //     e.preventDefault();
+    //     const email = emailRef.current.value;
+
+    //     resetPassword(email)
+    //         .then(() => {
+    //             toast("Check your email for reset password", {
+    //                 icon: <HiMailOpen />,
+    //             });
+    //             setLoading(false);
+    //         })
+    //         .catch((err) => {
+    //             let errorMessage = err.message;
+    //             if (errorMessage == "Firebase: Error (auth/missing-email).") {
+    //                 errorMessage = "Please provide email address";
+    //             }
+    //             setLoading(false);
+    //             console.log(errorMessage);
+    //             toast.error(errorMessage);
+    //         });
+    // };
+
 
     return (
         <div className='w-full lg:w-[70%]'>
@@ -77,7 +104,7 @@ const LoginForm = () => {
                             placeholder="password"
                             className="input input-bordered w-full"
                         />
-                        {errors.password?.type === "required" && (
+                        {errors.password && (
                             <p className="text-red-600 mt-2">Password is required</p>
                         )}
                         <p
@@ -87,12 +114,12 @@ const LoginForm = () => {
                             <small>{showPass ? <FaEye /> : <FaEyeSlash />}</small>
                         </p>
                         {/* TODO: make reset password  */}
-                        <button
+                        <p
                             // onClick={handleResetPassword}
-                            className="text-right mt-2 text-[#2896FF] hover:underline"
+                            className="text-right mt-2 text-[#2896FF] hover:underline cursor-pointer"
                         >
                             <small>Forgot password?</small>
-                        </button>
+                        </p>
                     </div>
                     <button
                         type="submit"
