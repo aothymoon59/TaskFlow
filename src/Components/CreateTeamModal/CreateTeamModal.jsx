@@ -48,7 +48,7 @@ const CreateTeamModal = ({ isOpen, setIsOpen }) => {
                         <span className="text-red-600 mt-2">Team Name is required</span>
                     )}
                 </div>
-                {/* Assign To  */}
+                {/* Invite To  */}
                 <div className="form-control mb-4">
                     <label className="mb-2">
                         <span className="text-sm font-semibold">Invite</span>
