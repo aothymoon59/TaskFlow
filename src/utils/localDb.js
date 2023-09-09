@@ -1,3 +1,4 @@
+// Make users collection
 const addUsersToDb = (user) => {
   const users = JSON.parse(localStorage.getItem("users"));
   let newUsers = [];
@@ -7,6 +8,18 @@ const addUsersToDb = (user) => {
     newUsers.push(user);
   }
   localStorage.setItem("users", JSON.stringify(newUsers));
+};
+
+// invited members
+const addInvitedMembers = (member) => {
+  const members = JSON.parse(localStorage.getItem("members"));
+  let newMembers = [];
+  if (members) {
+    newMembers = [...members, member];
+  } else {
+    newMembers.push(member);
+  }
+  localStorage.setItem("members", JSON.stringify(newMembers));
 };
 
 // Get all user
@@ -22,4 +35,4 @@ const getSingleUser = (email) => {
   return existUser;
 };
 
-export { addUsersToDb, getSingleUser, getAllUsers };
+export { addUsersToDb, getSingleUser, getAllUsers, addInvitedMembers };

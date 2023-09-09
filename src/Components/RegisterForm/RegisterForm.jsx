@@ -52,10 +52,7 @@ const RegisterForm = () => {
                                     image: imgUrl,
                                     role: "user",
                                 };
-                                // TODO: push data to localstorage 
-
                                 addUsersToDb(savedUser)
-                                console.log(savedUser)
                                 handleSignOutAfterReg();
                                 reset();
                                 toast.success("Successfully sign Up!");
