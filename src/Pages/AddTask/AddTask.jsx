@@ -60,13 +60,10 @@ const AddTask = () => {
                         <input
                             type="date"
                             {...register("date", { required: true })}
-                            name="title"
+                            name="date"
                             placeholder="Add a deadline"
                             className="input input-bordered w-full"
                         />
-                        {errors.date && (
-                            <span className="text-red-600 mt-2">deadline is required</span>
-                        )}
                     </div>
                     {/* Assign To  */}
                     <div className="form-control mb-4">
