@@ -61,9 +61,9 @@ const CreateTeamModal = ({ isOpen, setIsOpen }) => {
 
                     </select>
                 </div>
-                <div className="flex gap-3 justify-end">
-                    <button onClick={() => onCancel()} type="button" className="btn btn-danger">Cancel</button>
-                    <button type="submit" className="btn btn-primary">Create Team</button>
+                <div className="flex gap-3 justify-center items-center md:justify-end">
+                    <button onClick={() => onCancel()} type="button" className="btn btn-error btn-xs md:btn-sm">Cancel</button>
+                    <button type="submit" className="btn btn-info btn-xs md:btn-sm">Create Team</button>
                 </div>
 
             </form>
